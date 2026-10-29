@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechZone - Catálogo Hardware</title>
+
+    <style>
+        /* 1. RESET Y BOX MODEL */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* 2. CABECERA */
+        header {
+            background-color: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            color: #38bdf8;
+            font-size: 36px;
+        }
+
+        header p {
+            margin-top: 5px;
+        }
+
+        /* 3. NAVEGACIÓN CON FLEXBOX */
+        nav {
+            background-color: #1e293b;
+            padding: 15px 25px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* 4. CONTENIDO PRINCIPAL */
+        main {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .introduccion {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .introduccion h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        /* 5. TARJETAS CON FLEXBOX */
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 25px;
+        }
+
+        article {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 300px;
+            max-width: 360px;
+            padding: 20px;
+            margin: 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+            gap: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        /* 6. IMÁGENES */
+        figure {
+            text-align: center;
+        }
+
+        figure img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+        }
+
+        figcaption {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        article h3 {
+            font-size: 21px;
+            color: #0f172a;
+        }
+
+        /* 7. ESTADOS Y PRECIOS */
+        .estado {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: #166534;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        mark {
+            background-color: #fef08a;
+            color: #854d0e;
+            padding: 4px 8px;
+            border-radius: 5px;
+        }
+
+        .precio {
+            color: #0284c7;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .precio-anterior {
+            color: #94a3b8;
+            text-decoration: line-through;
+            font-size: 14px;
+        }
+
+        time {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        /* 8. DETALLES DESPLEGABLES */
+        details {
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        summary {
+            cursor: pointer;
+            color: #0369a1;
+            font-weight: bold;
+        }
+
+        details ul {
+            margin: 10px 0 0 20px;
+        }
+
+        /* 9. BOTONES AL FINAL DE LA TARJETA */
+        .acciones {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+            padding-top: 10px;
+        }
+
+        button {
+            border: none;
+            padding: 11px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .comprar {
+            background-color: #0284c7;
+            color: white;
+            flex: 1;
+        }
+
+        .comprar:hover {
+            background-color: #0369a1;
+        }
+
+        .comparar {
+            background-color: #e2e8f0;
+            color: #1e293b;
+        }
+
+        .comparar:hover {
+            background-color: #cbd5e1;
+        }
+
+        /* 10. SECCIÓN INFORMATIVA */
+        .resumen {
+            background-color: white;
+            padding: 25px;
+            margin-top: 35px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        /* 11. PIE DE PÁGINA */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        footer small {
+            color: #cbd5e1;
+        }
+
+        /* 12. DISEÑO RESPONSIVE */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            article {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABECERA -->
+    <header>
+        <h1>TechZone</h1>
+        <p>Tu tienda de componentes informáticos</p>
+    </header>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Componentes</a></li>
+            <li><a href="#ofertas">Ofertas</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main id="inicio">
+
+        <section class="introduccion">
+            <h2>Catálogo de componentes PC</h2>
+            <p>Descubre, consulta y compara componentes para tu ordenador.</p>
+        </section>
+
+        <!-- TARJETAS DE PRODUCTOS -->
+        <section class="productos" id="productos">
+
+            <!-- TARJETA 1 -->
+            <article>
+                <figure>
+                    <img
+                        src="https://placehold.co/400x250/e2e8f0/1e293b?text=Procesador"
+                        alt="Imagen ilustrativa de un procesador">
+                    <figcaption>Procesador para PC</figcaption>
+                </figure>
+
+                <h3>Intel Core i7</h3>
+
+                <p>Procesador para videojuegos y tareas exigentes.</p>
+
+                <p><span class="estado">En stock</span></p>
+
+                <p class="precio">329,99 €</p>
+
+                <time datetime="2026-10-20">
+                    Actualizado el 20/10/2026
+                </time>
+
+                <details>
+                    <summary>Ver especificaciones</summary>
+                    <ul>
+                        <li>14 núcleos</li>
+                        <li>Frecuencia máxima: 5,4 GHz</li>
+                        <li>Consumo base: 65 W</li>
+                        <li>Socket: LGA1700</li>
+                    </ul>
+                </details>
+
+                <div class="acciones">
+                    <button class="comprar"
+                        onclick="alert('Producto añadido al carrito')">
+                        Comprar
+                    </button>
+
+                    <button class="comparar"
+                        onclick="alert('Intel Core i7 seleccionado')">
+                        Comparar
+                    </button>
+                </div>
+            </article>
+
+            <!-- TARJETA 2 -->
+            <article id="ofertas">
+                <figure>
+                    <img
+                        src="https://placehold.co/400x250/e2e8f0/1e293b?text=Tarjeta+grafica"
+                        alt="Imagen ilustrativa de una tarjeta gráfica">
+                    <figcaption>Tarjeta gráfica dedicada</figcaption>
+                </figure>
+
+                <h3>NVIDIA RTX 4070</h3>
+
+                <p>Tarjeta gráfica para gaming y diseño 3D.</p>
+
+                <p>
+                    <mark>Oferta</mark>
+                    <span class="estado">En stock</span>
+                </p>
+
+                <p>
+                    <span class="precio">599,99 €</span>
+                    <span class="precio-anterior">649,99 €</span>
+                </p>
+
+                <time datetime="2026-10-25">
+                    Actualizado el 25/10/2026
+                </time>
+
+                <details>
+                    <summary>Ver especificaciones</summary>
+                    <ul>
+                        <li>12 GB de memoria GDDR6X</li>
+                        <li>Arquitectura Ada Lovelace</li>
+                        <li>Tecnología Ray Tracing</li>
+                        <li>Interfaz PCI Express 4.0</li>
+                    </ul>
+                </details>
+
+                <div class="acciones">
+                    <button class="comprar"
+                        onclick="alert('Producto añadido al carrito')">
+                        Comprar
+                    </button>
+
+                    <button class="comparar"
+                        onclick="alert('RTX 4070 seleccionada')">
+                        Comparar
+                    </button>
+                </div>
+            </article>
+
+            <!-- TARJETA 3 -->
+            <article>
+                <figure>
+                    <img
+                        src="https://placehold.co/400x250/e2e8f0/1e293b?text=Memoria+RAM"
+                        alt="Imagen ilustrativa de memoria RAM">
+                    <figcaption>Memoria RAM DDR5</figcaption>
+                </figure>
+
+                <h3>Corsair Vengeance 32 GB</h3>
+
+                <p>Memoria para mejorar la multitarea y el rendimiento.</p>
+
+                <p><span class="estado">En stock</span></p>
+
+                <p class="precio">119,99 €</p>
+
+                <time datetime="2026-10-26">
+                    Actualizado el 26/10/2026
+                </time>
+
+                <details>
+                    <summary>Ver especificaciones</summary>
+                    <ul>
+                        <li>Capacidad: 32 GB (2 × 16 GB)</li>
+                        <li>Tipo: DDR5</li>
+                        <li>Velocidad: 6000 MT/s</li>
+                        <li>Formato: DIMM</li>
+                    </ul>
+                </details>
+
+                <div class="acciones">
+                    <button class="comprar"
+                        onclick="alert('Producto añadido al carrito')">
+                        Comprar
+                    </button>
+
+                    <button class="comparar"
+                        onclick="alert('Memoria RAM seleccionada')">
+                        Comparar
+                    </button>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- RESUMEN -->
+        <section class="resumen">
+            <h2>¿Por qué elegir TechZone?</h2>
+            <p>Consulta las características de los productos y encuentra
+                los componentes adecuados para tu ordenador.</p>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer id="contacto">
+        <p>TechZone - Catálogo de componentes informáticos</p>
+        <p><small>Actividad educativa de HTML5 y CSS3.</small></p>
+        <p><small>&copy; 2026 TechZone. Todos los derechos reservados.</small></p>
+    </footer>
+
+</body>
+</html>
