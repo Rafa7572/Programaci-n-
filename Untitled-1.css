@@ -1,0 +1,249 @@
+/* 1. RESET Y BOX MODEL */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+/* 2. CABECERA */
+header {
+    background-color: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    color: #38bdf8;
+    font-size: 36px;
+}
+
+header p {
+    margin-top: 5px;
+}
+
+/* 3. BARRA DE NAVEGACIÓN */
+nav {
+    background-color: #1e293b;
+    padding: 15px 25px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+/* 4. CONTENIDO PRINCIPAL */
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.introduccion {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.introduccion h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* 5. CONTENEDOR DE PRODUCTOS CON FLEXBOX */
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+}
+
+/* 6. TARJETAS DE PRODUCTOS */
+article {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 300px;
+    max-width: 360px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+    gap: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto al pasar el ratón */
+article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* 7. IMÁGENES */
+figure {
+    text-align: center;
+}
+
+figure img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+
+figcaption {
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* 8. TÍTULOS Y TEXTOS */
+article h3 {
+    font-size: 21px;
+    color: #0f172a;
+}
+
+/* 9. ETIQUETAS DE ESTADO Y OFERTAS */
+.estado {
+    display: inline-block;
+    background-color: #dcfce7;
+    color: #166534;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+mark {
+    background-color: #fef08a;
+    color: #854d0e;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+/* 10. PRECIOS */
+.precio {
+    color: #0284c7;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.precio-anterior {
+    color: #94a3b8;
+    text-decoration: line-through;
+    font-size: 14px;
+}
+
+time {
+    color: #64748b;
+    font-size: 12px;
+}
+
+/* 11. DETALLES DESPLEGABLES */
+details {
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+summary {
+    cursor: pointer;
+    color: #0369a1;
+    font-weight: bold;
+}
+
+details ul {
+    margin: 10px 0 0 20px;
+}
+
+/* 12. BOTONES */
+.acciones {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+button {
+    border: none;
+    padding: 11px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.comprar {
+    background-color: #0284c7;
+    color: white;
+    flex: 1;
+}
+
+.comprar:hover {
+    background-color: #0369a1;
+}
+
+.comparar {
+    background-color: #e2e8f0;
+    color: #1e293b;
+}
+
+.comparar:hover {
+    background-color: #cbd5e1;
+}
+
+/* 13. SECCIÓN DE RESUMEN */
+.resumen {
+    background-color: white;
+    padding: 25px;
+    margin-top: 35px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* 14. PIE DE PÁGINA */
+footer {
+    background-color: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+footer small {
+    color: #cbd5e1;
+}
+
+/* 15. DISEÑO RESPONSIVE */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    article {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
