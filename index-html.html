@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Catálogo</title>
+
+    <style>
+        /* RESET Y BOX MODEL */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* CABECERA */
+        header {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #38bdf8;
+        }
+
+        header p {
+            color: #cbd5e1;
+            margin-top: 0.5rem;
+        }
+
+        /* NAVEGACIÓN */
+        nav {
+            background: #1e293b;
+            padding: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        /* GRID DE PRODUCTOS */
+        .productos {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* TARJETAS */
+        article {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px
+                        rgba(0, 0, 0, 0.08);
+
+            transition: transform 0.3s,
+                        box-shadow 0.3s;
+        }
+
+        article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px
+                        rgba(0, 0, 0, 0.15);
+        }
+
+        /* IMÁGENES */
+        figure {
+            text-align: center;
+        }
+
+        figure img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        figcaption {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        /* INFORMACIÓN */
+        article h3 {
+            color: #0f172a;
+            font-size: 1.3rem;
+        }
+
+        .precio {
+            color: #0284c7;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .stock {
+            color: #15803d;
+            font-weight: bold;
+        }
+
+        .oferta {
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 0.25rem 0.6rem;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        article details {
+            background: #f8fafc;
+            padding: 0.8rem;
+            border-radius: 8px;
+        }
+
+        article summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        article time {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        /* BOTONES */
+        .acciones {
+            display: flex;
+            gap: 0.5rem;
+            align-self: end;
+            margin-top: auto;
+        }
+
+        button {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            background: #0284c7;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0369a1;
+        }
+
+        button.secundario {
+            background: #334155;
+        }
+
+        button.secundario:hover {
+            background: #0f172a;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer small {
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABECERA -->
+    <header>
+        <h1>TECHSTORE</h1>
+        <p>Catálogo de componentes tecnológicos</p>
+    </header>
+
+    <!-- NAVEGACIÓN -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#ofertas">Ofertas</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main id="inicio">
+
+        <section id="productos">
+
+            <h2>Catálogo de componentes</h2>
+
+            <div class="productos">
+
+                <!-- PRODUCTO 1 -->
+                <article>
+                    <figure>
+                        <img
+                          src="https://www.notebookcheck.net/fileadmin/Notebooks/AMD/Ryzen_7_7800X3D/7800X3D_13.jpg"
+                          alt="Procesador AMD Ryzen">
+                        <figcaption>
+                            Procesador de alto rendimiento
+                        </figcaption>
+                    </figure>
+
+                    <h3>AMD Ryzen 7 7800X3D</h3>
+
+                    <p>Procesador de 8 núcleos
+                       para gaming y productividad.</p>
+
+                    <p class="precio">289,99 €</p>
+
+                    <span class="stock">● En stock</span>
+
+                    <time datetime="2026-01-15">
+                        Actualizado: 15/01/2026
+                    </time>
+
+                    <details>
+                        <summary>Ver especificaciones</summary>
+                        <p>Núcleos: 8</p>
+                        <p>Hilos: 16</p>
+                        <p>Frecuencia: hasta 5 GHz</p>
+                    </details>
+
+                    <div class="acciones">
+                        <button onclick="alert('Producto seleccionado')">
+                            Comprar
+                        </button>
+                        <button class="secundario"
+                          onclick="alert('AMD Ryzen 7: 8 núcleos, 16 hilos')">
+                            Detalles
+                        </button>
+                    </div>
+                </article>
+
+                <!-- PRODUCTO 2 -->
+                <article id="ofertas">
+                    <figure>
+                        <img
+                          src="https://www.bing.com/images/search?view=detailV2&ccid=2RNqxDdd&id=A0B08AAD1708F085107A9A202C0CEDC892A41A7E&thid=OIP.2RNqxDdd-DQFH2y6NPkmCwHaDH&mediaurl=https%3a%2f%2fwww.nvidia.com%2fcontent%2fdam%2fen-zz%2fSolutions%2fgeforce%2fgeforce-rtx-turing%2foverview%2fshop-2080-ti-1070%402x.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.d9136ac4375df834051f6cba34f9260b%3frik%3dfhqkksjtDCwgmg%26pid%3dImgRaw%26r%3d0&exph=900&expw=2142&q=NVIDIA+GeForce+RTX&FORM=IRPRST&ck=E3E999B941CE247AB5AF7FDD7B78F286&selectedIndex=4&itb=0"
+                          alt="Tarjeta gráfica NVIDIA">
+                        <figcaption>
+                            Gráficos de última generación
+                        </figcaption>
+                    </figure>
+
+                    <h3>NVIDIA GeForce RTX</h3>
+
+                    <p>Tarjeta gráfica ideal
+                       para videojuegos y diseño.</p>
+
+                    <p class="precio">599,99 €</p>
+
+                    <mark class="oferta">¡Oferta especial!</mark>
+
+                    <time datetime="2026-02-10">
+                        Actualizado: 10/02/2026
+                    </time>
+
+                    <details>
+                        <summary>Ver especificaciones</summary>
+                        <p>Memoria: 12 GB GDDR</p>
+                        <p>Interfaz: PCI Express</p>
+                        <p>Ray Tracing compatible</p>
+                    </details>
+
+                    <div class="acciones">
+                        <button onclick="alert('Producto seleccionado')">
+                            Comprar
+                        </button>
+                        <button class="secundario"
+                          onclick="alert('Tarjeta gráfica NVIDIA')">
+                            Detalles
+                        </button>
+                    </div>
+                </article>
+
+                <!-- PRODUCTO 3 -->
+                <article>
+                    <figure>
+                        <img
+                          src="data:image/webp;base64,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"
+                          alt="Memoria RAM DDR5">
+                        <figcaption>
+                            Memoria de alto rendimiento
+                        </figcaption>
+                    </figure>
+
+                    <h3>Corsair DDR5 32 GB</h3>
+
+                    <p>Memoria RAM para equipos
+                       de alto rendimiento.</p>
+
+                    <p class="precio">119,99 €</p>
+
+                    <span class="stock">● En stock</span>
+
+                    <time datetime="2026-03-01">
+                        Actualizado: 01/03/2026
+                    </time>
+
+                    <details>
+                        <summary>Ver especificaciones</summary>
+                        <p>Capacidad: 32 GB</p>
+                        <p>Tipo: DDR5</p>
+                        <p>Velocidad: 6000 MHz</p>
+                    </details>
+
+                    <div class="acciones">
+                        <button onclick="alert('Producto seleccionado')">
+                            Comprar
+                        </button>
+                        <button class="secundario"
+                          onclick="alert('Memoria RAM DDR5 de 32 GB')">
+                            Detalles
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer id="contacto">
+        <p>TECHSTORE - Catálogo tecnológico</p>
+        <small>
+            © 2026 Todos los derechos reservados.
+            Diseñado con HTML5 y CSS3.
+        </small>
+    </footer>
+
+</body>
+</html>
